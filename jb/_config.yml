@@ -1,5 +1,5 @@
 # Book settings
-title: Think Python
+title: Think Python (edición en español)
 author: Allen B. Downey
 
 latex:
@@ -17,14 +17,16 @@ html:
   extra_footer: |
     <div style="text-align: left;">
       <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-        <img alt="Creative Commons License" style="border-width:0"
+        <img alt="Licencia Creative Commons" style="border-width:0"
              src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
       </a>
       <br />
-      This work is licensed under a
+      Esta obra está bajo una
       <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-        Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
+        Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional
       </a>.
+      <br />
+      Traducción al español por midudev (Miguel Ángel Durán). Obra original de Allen B. Downey.
     </div>
 
 parse:
