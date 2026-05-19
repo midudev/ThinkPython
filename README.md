@@ -17,16 +17,16 @@ La página principal del libro está en [Green Tea Press](http://thinkpython.com
 Para que todo funcione correctamente:
 
 1. Instala Python 3 y Jupyter si todavía no los tienes.
-2. Instala las herramientas de Jupyter Book si necesitas construir el libro:
+2. Instala las herramientas de Jupyter Book si necesitas construir el libro. Este repositorio usa el formato clásico de Jupyter Book, por lo que debes instalar la versión 1.x:
 
    ```bash
-   python -m pip install jupyter-book
+   python -m pip install "jupyter-book<2"
    ```
 
-3. Construye el libro desde la carpeta `jb`:
+3. Construye el libro desde la carpeta `chapters`, que contiene los notebooks y la configuración del libro:
 
    ```bash
-   cd jb && jb build .
+   jupyter-book build chapters
    ```
 
 4. Para ejecutar o abrir los notebooks con Jupyter, desde la raíz del repositorio puedes usar:

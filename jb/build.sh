@@ -1,15 +1,9 @@
-# pip install jupyter-book ghp-import
+# pip install "jupyter-book<2" ghp-import
 
 # Build the Jupyter book version
 
-# copy the notebooks
-cp ../ThinkPythonSolutions/soln/chap[01][0-9]*.ipynb .
-
-# add tags to hide the solutions
-python prep_notebooks.py
-
 # build the HTML version
-jb build .
+jupyter-book build ../chapters
 
 # push it to GitHub
-ghp-import -n -p -f _build/html
+ghp-import -n -p -f ../chapters/_build/html
