@@ -10,8 +10,10 @@ execute:
   execute_notebooks: 'off'
 
 repository:
-  url: https://github.com/AllenDowney/ThinkPython/tree/v3
+  url: https://github.com/midudev/ThinkPython
+  branch: v3
 html:
+  baseurl: https://libropython.es
   use_repository_button: true
 
   extra_footer: |
@@ -26,7 +28,8 @@ html:
         Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional
       </a>.
       <br />
-      Traducción al español por midudev (Miguel Ángel Durán). Obra original de Allen B. Downey.
+      Traducción al español por <a href="https://midu.dev" rel="follow">midudev</a>
+      (Miguel Ángel Durán). Obra original de Allen B. Downey.
     </div>
 
 parse:
@@ -48,9 +51,11 @@ parse:
     - tasklist
 
 sphinx:
+  local_extensions:
+    full_book_pdf: _extensions
   config:
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-    mathjax_config:
-      tex2jax:
+    mathjax3_config:
+      tex:
         inlineMath: [["$","$"], ["\\(", "\\)"]]
     myst_update_mathjax: false
