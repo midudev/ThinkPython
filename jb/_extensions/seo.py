@@ -1,5 +1,8 @@
 """SEO metadata for the public book site."""
 
+import html
+import re
+
 SITE_URL = "https://libropython.es"
 SITE_NAME = "Libro Python"
 BOOK_TITLE = "Think Python en español"
@@ -26,10 +29,27 @@ def _page_url(app, pagename: str) -> str:
     return f"{base}/{pagename}.html"
 
 
+_TAG_RE = re.compile(r"<[^>]+>")
+
+
+def _strip_html(value: str) -> str:
+    """Return *value* without HTML tags and with entities decoded.
+
+    Sphinx feeds template titles with markup like
+    ``<span class="section-number">6. </span>Valores de retorno``. Embedding
+    that verbatim inside ``<meta content="...">`` or ``<title>`` breaks the
+    HTML because of the inner double quotes, so we sanitise it before use.
+    """
+
+    text = _TAG_RE.sub("", value or "")
+    return html.unescape(text).strip()
+
+
 def _page_title(app, pagename: str, title: str) -> str:
+    clean = _strip_html(title)
     if pagename in {app.config.root_doc, "index"}:
         return BOOK_TITLE
-    return f"{title} — {BOOK_TITLE}"
+    return f"{clean} — {BOOK_TITLE}"
 
 
 def update_seo_context(app, pagename, templatename, context, doctree):

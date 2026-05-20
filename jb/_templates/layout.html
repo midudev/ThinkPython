@@ -1,31 +1,31 @@
 {% extends "!layout.html" %}
 
 {% block htmltitle -%}
-<title>{{ seo.page_title }}</title>
+<title>{{ seo.page_title|striptags|e }}</title>
 {%- endblock %}
 
 {% block extrahead %}
   {{ super() }}
   {%- if seo -%}
-  <meta name="description" content="{{ seo.description }}" />
-  <meta name="theme-color" content="{{ seo.theme_color }}" />
+  <meta name="description" content="{{ seo.description|striptags|e }}" />
+  <meta name="theme-color" content="{{ seo.theme_color|e }}" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="{{ seo.site_name }}" />
-  <meta property="og:locale" content="{{ seo.locale }}" />
-  <meta property="og:title" content="{{ seo.page_title }}" />
-  <meta property="og:description" content="{{ seo.description }}" />
-  <meta property="og:url" content="{{ seo.page_url }}" />
-  <meta property="og:image" content="{{ seo.image_url }}" />
+  <meta property="og:site_name" content="{{ seo.site_name|e }}" />
+  <meta property="og:locale" content="{{ seo.locale|e }}" />
+  <meta property="og:title" content="{{ seo.page_title|striptags|e }}" />
+  <meta property="og:description" content="{{ seo.description|striptags|e }}" />
+  <meta property="og:url" content="{{ seo.page_url|e }}" />
+  <meta property="og:image" content="{{ seo.image_url|e }}" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Portada de Think Python en español" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="{{ seo.twitter_site }}" />
-  <meta name="twitter:title" content="{{ seo.page_title }}" />
-  <meta name="twitter:description" content="{{ seo.description }}" />
-  <meta name="twitter:image" content="{{ seo.image_url }}" />
+  <meta name="twitter:site" content="{{ seo.twitter_site|e }}" />
+  <meta name="twitter:title" content="{{ seo.page_title|striptags|e }}" />
+  <meta name="twitter:description" content="{{ seo.description|striptags|e }}" />
+  <meta name="twitter:image" content="{{ seo.image_url|e }}" />
   <meta name="twitter:image:alt" content="Portada de Think Python en español" />
 
   <link rel="icon" href="{{ pathto('', 1) }}favicon.ico" sizes="any" />
@@ -38,20 +38,20 @@
   {
     "@context": "https://schema.org",
     "@type": "Book",
-    "name": "{{ seo.book_title }}",
-    "description": "{{ seo.description }}",
-    "url": "{{ seo.site_url }}/",
+    "name": {{ seo.book_title|tojson }},
+    "description": {{ (seo.description|striptags)|tojson }},
+    "url": {{ (seo.site_url ~ "/")|tojson }},
     "inLanguage": "es",
     "author": {
       "@type": "Person",
-      "name": "{{ seo.author }}"
+      "name": {{ seo.author|tojson }}
     },
     "translator": {
       "@type": "Person",
-      "name": "{{ seo.translator }}",
+      "name": {{ seo.translator|tojson }},
       "url": "https://midu.dev"
     },
-    "image": "{{ seo.image_url }}",
+    "image": {{ seo.image_url|tojson }},
     "isAccessibleForFree": true,
     "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
   }
