@@ -1,4 +1,9 @@
-# Think Python (edición en español)
+---
+title: Think Python en español
+description: Think Python en español — introducción gratuita a Python de Allen B. Downey, 3.ª edición traducida con notebooks y PDF.
+---
+
+# Think Python en español
 
 *Think Python* es una introducción a Python para personas que nunca han programado, o para quienes lo han intentado y se han encontrado con dificultades.
 

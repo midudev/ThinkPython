@@ -1,5 +1,5 @@
 # Book settings
-title: Think Python (edición en español)
+title: Think Python en español
 author: Allen B. Downey
 
 latex:
@@ -14,6 +14,7 @@ repository:
   branch: v3
 html:
   baseurl: https://libropython.es
+  favicon: extra_html/favicon.ico
   use_repository_button: true
 
   extra_footer: |
@@ -53,7 +54,13 @@ parse:
 sphinx:
   local_extensions:
     full_book_pdf: _extensions
+    seo: _extensions/seo.py
   config:
+    language: es
+    html_title: Think Python en español
+    html_short_title: Libro Python
+    html_extra_path:
+      - extra_html
     templates_path:
       - _templates
     html_static_path:
