@@ -1,0 +1,23 @@
+{
+  "name": "Think Python en español",
+  "short_name": "Think Python",
+  "description": "Think Python en español: libro gratuito para aprender Python con notebooks y PDF.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2d3748",
+  "theme_color": "#2d3748",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
