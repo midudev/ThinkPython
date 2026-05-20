@@ -28,3 +28,4 @@ pip-log.txt
 
 jb/_build/
 jb/.wrangler/cache/wrangler-account.json
+jb/extra_html/cover-source.jpg
