@@ -54,6 +54,8 @@ sphinx:
   local_extensions:
     full_book_pdf: _extensions
   config:
+    templates_path:
+      - _templates
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     mathjax3_config:
       tex:

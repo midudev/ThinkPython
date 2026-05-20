@@ -37,6 +37,7 @@ pdf_filename="think-python-es.pdf"
 pdf_build_dir="_build/pdfhtml"
 pdf_source="$pdf_build_dir/_build/pdf/book.pdf"
 html_pdf="_build/html/$pdf_filename"
+dist_dir="../dist"
 
 "$jupyter_book_cmd" build .
 "$jupyter_book_cmd" build . --builder pdfhtml --path-output "$pdf_build_dir"
@@ -48,3 +49,8 @@ fi
 
 cp "$pdf_source" "$html_pdf"
 echo "Full-book PDF copied to $html_pdf"
+
+rm -rf "$dist_dir"
+mkdir -p "$dist_dir"
+cp -R _build/html/. "$dist_dir/"
+echo "Static site copied to $dist_dir"

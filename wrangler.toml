@@ -1,0 +1,5 @@
+name = "think-python-es"
+compatibility_date = "2026-05-19"
+
+[assets]
+directory = "./dist"

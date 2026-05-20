@@ -1,11 +1,15 @@
-"""Header download button for the generated full-book PDF."""
+"""Site links for the public book build."""
 
 PDF_FILENAME = "think-python-es.pdf"
 PDF_TOOLTIP = "Descargar el libro completo en PDF"
+SITE_HOME_URL = "https://libropython.es"
 
 
-def use_full_book_pdf_download(app, pagename, templatename, context, doctree):
-    """Replace the page-download dropdown with the full-book PDF link."""
+def update_site_links(app, pagename, templatename, context, doctree):
+    """Point site-level home/download links to their public targets."""
+    context["theme_logo_link"] = SITE_HOME_URL
+    context["theme_site_home_url"] = SITE_HOME_URL
+
     header_buttons = context.get("header_buttons")
     if not isinstance(header_buttons, list):
         return
@@ -29,5 +33,5 @@ def use_full_book_pdf_download(app, pagename, templatename, context, doctree):
 
 
 def setup(app):
-    app.connect("html-page-context", use_full_book_pdf_download, priority=700)
+    app.connect("html-page-context", update_site_links, priority=700)
     return {"parallel_read_safe": True, "parallel_write_safe": True}

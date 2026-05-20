@@ -6,7 +6,8 @@ Traducción al español por [midudev](https://midu.dev) (Miguel Ángel Durán).
 
 ## Enlaces
 
-- Repositorio del proyecto: [libropython.es](https://libropython.es)
+- Página pública del libro: [libropython.es](https://libropython.es)
+- Repositorio del proyecto: [github.com/midudev/ThinkPython](https://github.com/midudev/ThinkPython)
 - Página original del libro: [Green Tea Press](http://thinkpython.com)
 - Versión impresa y electrónica en inglés: [Bookshop.org](https://bookshop.org/a/98697/9781098155438) y [Amazon](https://www.amazon.com/_/dp/1098155432?smid=ATVPDKIKX0DER&_encoding=UTF8&tag=oreilly20-20&_encoding=UTF8&tag=greenteapre01-20&linkCode=ur2&linkId=e2a529f94920295d27ec8a06e757dc7c&camp=1789&creative=9325)
 
@@ -52,6 +53,28 @@ python3 -m playwright install chromium
    - HTML: `jb/_build/html/index.html`
    - PDF: `jb/_build/html/think-python-es.pdf`
    - Archivos estáticos para producción: `jb/_build/html/`
+   - Carpeta lista para desplegar: `dist/`
+
+## Desplegar en Cloudflare Workers
+
+El archivo `wrangler.toml` despliega los assets estáticos desde `./dist`.
+
+1. Construye el libro:
+
+   ```bash
+   cd jb
+   ./build.sh
+   cd ..
+   ```
+
+2. Despliega con Wrangler:
+
+   ```bash
+   npx wrangler login
+   npx wrangler deploy
+   ```
+
+3. Para usar `https://libropython.es`, asigna ese dominio al Worker desde Cloudflare Dashboard, en Workers & Pages > tu Worker > Settings > Domains & Routes.
 
 ## Abrir los notebooks
 
