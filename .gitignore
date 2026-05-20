@@ -27,3 +27,4 @@ pip-log.txt
 .mr.developer.cfg
 
 jb/_build/
+jb/.wrangler/cache/wrangler-account.json
