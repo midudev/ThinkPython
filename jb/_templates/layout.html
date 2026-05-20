@@ -1,0 +1,60 @@
+{% extends "!layout.html" %}
+
+{% block htmltitle -%}
+<title>{{ seo.page_title }}</title>
+{%- endblock %}
+
+{% block extrahead %}
+  {{ super() }}
+  {%- if seo -%}
+  <meta name="description" content="{{ seo.description }}" />
+  <meta name="theme-color" content="{{ seo.theme_color }}" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="{{ seo.site_name }}" />
+  <meta property="og:locale" content="{{ seo.locale }}" />
+  <meta property="og:title" content="{{ seo.page_title }}" />
+  <meta property="og:description" content="{{ seo.description }}" />
+  <meta property="og:url" content="{{ seo.page_url }}" />
+  <meta property="og:image" content="{{ seo.image_url }}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Portada de Think Python en español" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="{{ seo.twitter_site }}" />
+  <meta name="twitter:title" content="{{ seo.page_title }}" />
+  <meta name="twitter:description" content="{{ seo.description }}" />
+  <meta name="twitter:image" content="{{ seo.image_url }}" />
+  <meta name="twitter:image:alt" content="Portada de Think Python en español" />
+
+  <link rel="icon" href="{{ pathto('', 1) }}favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ pathto('', 1) }}favicon-32x32.png" />
+  <link rel="icon" type="image/svg+xml" href="{{ pathto('', 1) }}favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ pathto('', 1) }}apple-touch-icon.png" />
+  <link rel="manifest" href="{{ pathto('', 1) }}site.webmanifest" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "{{ seo.book_title }}",
+    "description": "{{ seo.description }}",
+    "url": "{{ seo.site_url }}/",
+    "inLanguage": "es",
+    "author": {
+      "@type": "Person",
+      "name": "{{ seo.author }}"
+    },
+    "translator": {
+      "@type": "Person",
+      "name": "{{ seo.translator }}",
+      "url": "https://midu.dev"
+    },
+    "image": "{{ seo.image_url }}",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  }
+  </script>
+  {%- endif -%}
+{% endblock %}
