@@ -1,5 +1,7 @@
 # Think Python, 3.ª edición
 
+<img width="250" src="jb/_static/think_python_3e_es.png" alt="Portada en español de Think Python, 3.ª edición" align="right">
+
 Materiales, notebooks de Jupyter y versión web en español de la 3.ª edición de *Think Python: How to Think Like a Computer Scientist*, de Allen B. Downey.
 
 Traducción al español por [midudev](https://midu.dev) (Miguel Ángel Durán).

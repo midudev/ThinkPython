@@ -4,7 +4,7 @@
 
 Esta edición en español traduce la tercera edición de *Think Python: How to Think Like a Computer Scientist*, de Allen B. Downey, con traducción de [midudev](https://midu.dev).
 
-<img width="250" src="https://raw.githubusercontent.com/AllenDowney/ThinkPython/v3/think_python_3e.jpg" style="float: right; margin-left: 10px;">
+<img width="250" src="_static/think_python_3e_es.png" alt="Portada en español de Think Python, 3.ª edición" style="float: right; margin-left: 10px;">
 
 Puedes pedir las versiones impresa y electrónica de *Think Python 3e* en
 [Bookshop.org](https://bookshop.org/a/98697/9781098155438) y
