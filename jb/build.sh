@@ -4,15 +4,19 @@ set -euo pipefail
 # Build the Jupyter book version
 cd "$(dirname "$0")"
 
-# Link the translated notebooks into the Jupyter Book source directory.
+# Copy the translated notebooks into the Jupyter Book source directory so
+# prep_notebooks.py can add build-only metadata without modifying originals.
 for notebook in ../chapters/chap[01][0-9]*.ipynb; do
     target="$(basename "$notebook")"
-    if [ -e "$target" ] && [ ! -L "$target" ]; then
-        echo "Refusing to replace existing non-symlink: $target" >&2
+    if [ -e "$target" ] && [ ! -f "$target" ] && [ ! -L "$target" ]; then
+        echo "Refusing to replace existing non-file: $target" >&2
         exit 1
     fi
-    ln -sfn "$notebook" "$target"
+    rm -f "$target"
+    cp "$notebook" "$target"
 done
+
+python3 prep_notebooks.py
 
 if command -v jupyter-book >/dev/null 2>&1; then
     jupyter_book_cmd="jupyter-book"

@@ -6,9 +6,14 @@ def process_cell(cell):
     # get tags
     tags = cell['metadata'].get('tags', [])
 
-    # add hide-cell tag to solutions
     if cell['cell_type'] == 'code':
         source = cell['source']
+
+        if 'def download(url):' in source and 'import thinkpython' in source:
+            tags = cell['metadata'].setdefault('tags', [])
+            for tag in ['remove-cell', 'keep']:
+                if tag not in tags:
+                    tags.append(tag)
 
         # remove solutions
         if source.startswith('# Solution') or 'solution' in tags:
