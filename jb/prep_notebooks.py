@@ -3,14 +3,21 @@ from glob import glob
 
 
 def process_cell(cell):
-    # get tags
-    tags = cell['metadata'].get('tags', [])
+    tags = cell['metadata'].setdefault('tags', [])
 
     if cell['cell_type'] == 'code':
         source = cell['source']
 
-        if 'def download(url):' in source and 'import thinkpython' in source:
-            tags = cell['metadata'].setdefault('tags', [])
+        # Hide the setup cells that download modules and configure autoreload.
+        # In most chapters both bits live in the same cell, but in some (e.g.
+        # chap04) they are split across two consecutive cells, so we detect
+        # each pattern independently to cover both layouts.
+        is_download_cell = 'def download(url):' in source
+        is_autoreload_cell = (
+            'import thinkpython' in source and '%autoreload' in source
+        )
+
+        if is_download_cell or is_autoreload_cell:
             for tag in ['remove-cell', 'keep']:
                 if tag not in tags:
                     tags.append(tag)
